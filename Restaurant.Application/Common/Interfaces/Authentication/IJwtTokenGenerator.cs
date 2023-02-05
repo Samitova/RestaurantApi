@@ -1,6 +1,8 @@
-﻿namespace Restaurant.Application.Common.Interfaces.Authentication;
+﻿using Restaurant.Domain.Entities;
+
+namespace Restaurant.Application.Common.Interfaces.Authentication;
 
 public interface IJwtTokenGenerator
 {
-    string GenerateToken(Guid userId, string firstName, string lastName);
+    string GenerateToken(User user);
 }

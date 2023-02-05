@@ -1,7 +1,6 @@
-﻿namespace Restaurant.Application.Services.Authentication;
+﻿using Restaurant.Domain.Entities;
+
+namespace Restaurant.Application.Services.Authentication;
 public record AuthenticationResult(
-    Guid Id,
-    string FirstName,
-    string LastName,
-    string Email,
+    User User,
     string Token);

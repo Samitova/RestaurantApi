@@ -18,7 +18,7 @@ Table of Contents
 ### Register
 
 ```js 
-POST {{host}}/Authentication/Register
+POST {{host}}/api/Authentication/Register
 ```
 
 #### Register Request
@@ -49,7 +49,7 @@ POST {{host}}/Authentication/Register
 ### Login
 
 ```js 
-POST {{host}}/Authentication/Login
+POST {{host}}/api/Authentication/Login
 ```
 
 #### Login Request
