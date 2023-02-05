@@ -1,5 +1,6 @@
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Restaurant.Api.Common.Errors;
 using Restaurant.Application;
-using Restaurant.Application.Services.Authentication;
 using Restaurant.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,16 +9,19 @@ var builder = WebApplication.CreateBuilder(args);
 
 {
     builder.Services.AddAplication();
-    builder.Services.AddInfrastructure(builder.Configuration);
+    builder.Services.AddInfrastructure(builder.Configuration);    
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddSwaggerGen();   
+    builder.Services.AddSwaggerGen();
+    builder.Services.AddSingleton<ProblemDetailsFactory, RestaurantProblemDetaiksFactory>();
 }
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 {
+    app.UseExceptionHandler("/error");
+
     if (app.Environment.IsDevelopment())
     {
         app.UseSwagger();

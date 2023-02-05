@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption;
-using Microsoft.AspNetCore.Http;
+﻿using ErrorOr;
 using Microsoft.AspNetCore.Mvc;
 using Restaurant.Application.Services.Authentication;
 using Restaurant.Contracts.Authentication;
@@ -9,8 +7,7 @@ using IAuthenticationService = Restaurant.Application.Services.Authentication.IA
 namespace Restaurant.Api.Controllers;
 
 [Route("api/[controller]")]
-[ApiController]
-public class AuthenticationController : ControllerBase
+public class AuthenticationController : ApiController
 {
     private readonly IAuthenticationService _authenticationService;
 
@@ -22,21 +19,16 @@ public class AuthenticationController : ControllerBase
     [HttpPost("[action]")]   
     public IActionResult Register(RegisterRequest request) 
     {
-        var authenticationResult = _authenticationService.Register(
+        ErrorOr<AuthenticationResult> registerResult = _authenticationService.Register(
             request.FirstName,
             request.LastName,
             request.Email,
             request.Password);
 
-        var response = new AuthenticationResponse(
-            authenticationResult.User.Id,
-            authenticationResult.User.FirstName,
-            authenticationResult.User.LastName,
-            authenticationResult.User.Email,
-            authenticationResult.Token);
-
-        return Ok(response);
-    }
+        return registerResult.Match(
+            authenticationResult => Ok(MapAuthenticationResult(authenticationResult)),
+            errors => Problem(errors));
+    }   
 
     [HttpPost("[action]")]    
     public IActionResult Login(LoginRequest request)
@@ -45,13 +37,25 @@ public class AuthenticationController : ControllerBase
            request.Email,
            request.Password);
 
-        var response = new AuthenticationResponse(
-            loginResult.User.Id,
-            loginResult.User.FirstName,
-            loginResult.User.LastName,
-            loginResult.User.Email,
-            loginResult.Token);
+        //if (loginResult.IsError && loginResult.FirstError == Errors.Authentication.)
+        //{
+        //    return Problem(
+        //        statusCode: StatusCodes.Status401Unauthorized, 
+        //        title: loginResult.FirstError.Description);
+        //}
 
-        return Ok(response);
+        return loginResult.Match(
+           authenticationResult => Ok(MapAuthenticationResult(authenticationResult)),
+           errors => Problem(errors));
+    }
+
+    private static AuthenticationResponse MapAuthenticationResult(AuthenticationResult authenticationResult)
+    {
+        return new AuthenticationResponse(
+            authenticationResult.User.Id,
+            authenticationResult.User.FirstName,
+            authenticationResult.User.LastName,
+            authenticationResult.User.Email,
+            authenticationResult.Token);
     }
 }

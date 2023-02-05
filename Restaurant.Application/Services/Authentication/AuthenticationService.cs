@@ -1,5 +1,7 @@
-﻿using Restaurant.Application.Common.Interfaces.Authentication;
+﻿using ErrorOr;
+using Restaurant.Application.Common.Interfaces.Authentication;
 using Restaurant.Application.Common.Interfaces.Persistence;
+using Restaurant.Domain.Common.Errors;
 using Restaurant.Domain.Entities;
 
 namespace Restaurant.Application.Services.Authentication;
@@ -14,32 +16,33 @@ public class AuthenticationService : IAuthenticationService
         _userRepository = userRepository;
     }
 
-    public AuthenticationResult Register(string firstName, string lastName, string email, string password)
+    public ErrorOr<AuthenticationResult> Register(string firstName, string lastName, string email, string password)
     {
         if (_userRepository.GetUserByEmail(email) is not null)
         {
-            throw new Exception("User with given email is already exists");
+            return Errors.User.DuplicateEmail;
         }
 
-        User user = new User { 
+        User user = new User
+        {
             FirstName = firstName,
-            LastName = lastName,    
+            LastName = lastName,
             Email = email,
             Password = password
         };
 
         _userRepository.Add(user);
-        
+
         var token = _jwtTokenGenerator.GenerateToken(user);
 
         return new AuthenticationResult(user, token);
     }
 
-    public AuthenticationResult Login(string email, string password)
+    public ErrorOr<AuthenticationResult> Login(string email, string password)
     {
         if (_userRepository.GetUserByEmail(email) is not User user)
         {
-            throw new Exception("User with given email does not exist");
+            return Errors.Authentication.InvalidCredentials;
         }
 
         if (user.Password != password)
@@ -47,9 +50,9 @@ public class AuthenticationService : IAuthenticationService
             throw new Exception("Invalid password");
         }
 
-         string token = _jwtTokenGenerator.GenerateToken(user);
+        string token = _jwtTokenGenerator.GenerateToken(user);
 
         return new AuthenticationResult(user, token);
     }
- 
+
 }

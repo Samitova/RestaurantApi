@@ -4,14 +4,15 @@ using Restaurant.Domain.Entities;
 namespace Restaurant.Infrastructure.Persistence;
 
 public class UserRepository : IUserRepository
-{
+{ 
+    private List<User> _users = new List<User>();
     public void Add(User user)
     {
-        throw new NotImplementedException();
+        _users.Add(user);
     }
 
     public User? GetUserByEmail(string email)
     {
-        throw new NotImplementedException();
+        return _users.FirstOrDefault(x => x.Email == email);
     }
 }
