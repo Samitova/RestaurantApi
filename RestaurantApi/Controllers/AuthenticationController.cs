@@ -1,4 +1,5 @@
 ﻿using ErrorOr;
+using MapsterMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Restaurant.Application.Authentication.Commands.Register;
@@ -11,29 +12,31 @@ namespace Restaurant.Api.Controllers;
 [Route("api/[controller]")]
 public class AuthenticationController : ApiController
 {
-    private readonly ISender _mediator;   
-    public AuthenticationController(ISender mediator)
+    private readonly ISender _mediator;
+    private readonly IMapper _mapper;
+    public AuthenticationController(ISender mediator, IMapper mapper)
     {       
         _mediator = mediator;
+        _mapper = mapper;
     }
 
     [HttpPost("[action]")]   
     public async Task<IActionResult> Register(RegisterRequest request) 
     {
-        var command = new RegisterCommand(request.FirstName, request.LastName, request.Email, request.Password);
+        var command = _mapper.Map<RegisterCommand>(request);            
 
-        ErrorOr<AuthenticationResult> registerResult = await _mediator.Send(command);
+        ErrorOr<AuthenticationResult> authenticationResult = await _mediator.Send(command);
 
-        return registerResult.Match(
-            authenticationResult => Ok(MapAuthenticationResult(authenticationResult)),
+        return authenticationResult.Match(
+            authenticationResult => Ok(_mapper.Map<AuthenticationResponse>(authenticationResult)),
             errors => Problem(errors));
     }   
 
     [HttpPost("[action]")]    
     public async Task<IActionResult> Login(LoginRequest request)
     {
-        var query = new LoginQuery(request.Email, request.Password);
-        var loginResult = await _mediator.Send(query);
+        var query = _mapper.Map<LoginQuery>(request);
+        var authenticationResult = await _mediator.Send(query);
 
         //if (loginResult.IsError && loginResult.FirstError == Errors.Authentication.)
         //{
@@ -41,19 +44,9 @@ public class AuthenticationController : ApiController
         //        statusCode: StatusCodes.Status401Unauthorized, 
         //        title: loginResult.FirstError.Description);
         //}
-
-        return loginResult.Match(
-           authenticationResult => Ok(MapAuthenticationResult(authenticationResult)),
+        
+        return authenticationResult.Match(
+           authenticationResult => Ok(_mapper.Map<AuthenticationResponse>(authenticationResult)),
            errors => Problem(errors));
-    }
-
-    private static AuthenticationResponse MapAuthenticationResult(AuthenticationResult authenticationResult)
-    {
-        return new AuthenticationResponse(
-            authenticationResult.User.Id,
-            authenticationResult.User.FirstName,
-            authenticationResult.User.LastName,
-            authenticationResult.User.Email,
-            authenticationResult.Token);
     }
 }

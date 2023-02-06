@@ -1,5 +1,4 @@
-using Microsoft.AspNetCore.Mvc.Infrastructure;
-using Restaurant.Api.Common.Errors;
+using Restaurant.Api;
 using Restaurant.Application;
 using Restaurant.Infrastructure;
 
@@ -8,12 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 {
-    builder.Services.AddAplication();
-    builder.Services.AddInfrastructure(builder.Configuration);    
-    builder.Services.AddControllers();
-    builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddSwaggerGen();
-    builder.Services.AddSingleton<ProblemDetailsFactory, RestaurantProblemDetaiksFactory>();
+    builder.Services.AddPresentation()
+                    .AddAplication()
+                    .AddInfrastructure(builder.Configuration);  
 }
 
 var app = builder.Build();

@@ -15,14 +15,7 @@ namespace Restaurant.Api.Controllers
 
             if (errors.All(e => e.Type == ErrorType.Validation))
             {
-                var modelStateDictionary = new ModelStateDictionary();
-
-                foreach (var error in errors)
-                {
-                    modelStateDictionary.AddModelError(error.Code, error.Description);
-                }
-
-                return ValidationProblem(modelStateDictionary);
+                return ValidationProblem(errors);
             }
 
             if (errors.Any(e => e.Type == ErrorType.Unexpected))
@@ -32,7 +25,12 @@ namespace Restaurant.Api.Controllers
 
             var firstError = errors[0];
 
-            var statusCode = firstError.Type switch
+            return Problem(firstError);
+        }
+
+        private IActionResult Problem(Error error)
+        {
+            var statusCode = error.Type switch
             {
                 ErrorType.NotFound => StatusCodes.Status404NotFound,
                 ErrorType.Validation => StatusCodes.Status400BadRequest,
@@ -40,7 +38,19 @@ namespace Restaurant.Api.Controllers
                 _ => StatusCodes.Status500InternalServerError
             };
 
-            return Problem(statusCode: statusCode, title: firstError.Description);
+            return Problem(statusCode: statusCode, title: error.Description);
+        }
+
+        private IActionResult ValidationProblem(List<Error> errors)
+        {
+            var modelStateDictionary = new ModelStateDictionary();
+
+            foreach (var error in errors)
+            {
+                modelStateDictionary.AddModelError(error.Code, error.Description);
+            }
+
+            return ValidationProblem(modelStateDictionary);
         }
     }
 }
