@@ -2,7 +2,7 @@
 using Microsoft.IdentityModel.Tokens;
 using Restaurant.Application.Common.Interfaces.Authentication;
 using Restaurant.Application.Common.Interfaces.Services;
-using Restaurant.Domain.Entities;
+using Restaurant.Domain.UserAggregate;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;

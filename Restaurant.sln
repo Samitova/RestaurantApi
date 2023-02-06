@@ -3,20 +3,34 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.Api", "RestaurantApi\Restaurant.Api.csproj", "{A1D0EC83-9A80-41E0-9F1C-890682022D31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant.Api", "RestaurantApi\Restaurant.Api.csproj", "{A1D0EC83-9A80-41E0-9F1C-890682022D31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.Contracts", "Restaurant.Contracts\Restaurant.Contracts.csproj", "{28407109-C1B3-4F04-91A2-0FE0B05CE558}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant.Contracts", "Restaurant.Contracts\Restaurant.Contracts.csproj", "{28407109-C1B3-4F04-91A2-0FE0B05CE558}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.Infrastructure", "Restaurant.Infrastructure\Restaurant.Infrastructure.csproj", "{9968EF63-2F8C-4D37-A7D7-DD245B5B2DC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant.Infrastructure", "Restaurant.Infrastructure\Restaurant.Infrastructure.csproj", "{9968EF63-2F8C-4D37-A7D7-DD245B5B2DC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.Application", "Restaurant.Application\Restaurant.Application.csproj", "{3B96B017-0630-4216-9C36-D465320A9D2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant.Application", "Restaurant.Application\Restaurant.Application.csproj", "{3B96B017-0630-4216-9C36-D465320A9D2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.Domain", "Restaurant.Domain\Restaurant.Domain.csproj", "{AB3BE237-3FCA-4F56-A18C-BE680F348166}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant.Domain", "Restaurant.Domain\Restaurant.Domain.csproj", "{AB3BE237-3FCA-4F56-A18C-BE680F348166}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{CF6A2A64-A231-4C15-AA46-8A060BE8033E}"
 	ProjectSection(SolutionItems) = preProject
-		Api.md = Api.md
 		DomainModel.md = DomainModel.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DomainModels", "DomainModels", "{44ED06BF-E126-4D1A-90F1-65A8F0DE71E2}"
+	ProjectSection(SolutionItems) = preProject
+		Aggregates.Bill.md = Aggregates.Bill.md
+		Aggregates.Dinner.md = Aggregates.Dinner.md
+		Aggregates.Host.md = Aggregates.Host.md
+		Aggregates.Guest.md = Aggregates.Guest.md
+		Aggregates.Menu.md = Aggregates.Menu.md
+		Aggregates.MenuReview.md = Aggregates.MenuReview.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{17E200DD-3F51-4DD1-B4BB-4800D4E8427E}"
+	ProjectSection(SolutionItems) = preProject
+		Api.md = Api.md
 	EndProjectSection
 EndProject
 Global
@@ -48,6 +62,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{44ED06BF-E126-4D1A-90F1-65A8F0DE71E2} = {CF6A2A64-A231-4C15-AA46-8A060BE8033E}
+		{17E200DD-3F51-4DD1-B4BB-4800D4E8427E} = {CF6A2A64-A231-4C15-AA46-8A060BE8033E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AED9E679-1C22-4A06-85CA-6A13EDFBB727}

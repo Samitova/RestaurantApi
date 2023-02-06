@@ -4,8 +4,8 @@ using Restaurant.Application.Common.Interfaces.Authentication;
 using Restaurant.Application.Common.Interfaces.Persistence;
 using MediatR;
 using Restaurant.Domain.Common.Errors;
-using Restaurant.Domain.Entities;
 using Restaurant.Application.Authentication.Common;
+using Restaurant.Domain.UserAggregate;
 
 namespace Restaurant.Application.Authentication.Queries.Login;
 

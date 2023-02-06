@@ -4,7 +4,7 @@ using Restaurant.Application.Authentication.Common;
 using Restaurant.Application.Common.Interfaces.Authentication;
 using Restaurant.Application.Common.Interfaces.Persistence;
 using Restaurant.Domain.Common.Errors;
-using Restaurant.Domain.Entities;
+using Restaurant.Domain.UserAggregate;
 
 namespace Restaurant.Application.Authentication.Commands.Register;
 
@@ -26,13 +26,12 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
             return Errors.User.DuplicateEmail;
         }
 
-        User user = new User
-        {
-            FirstName = request.FirstName,
-            LastName = request.LastName,
-            Email = request.Email,
-            Password = request.Password
-        };
+        User user = User.Create(       
+            request.FirstName,
+            request.LastName,
+            request.Email,
+            request.Password
+        );
 
         _userRepository.Add(user);
 
