@@ -1,4 +1,5 @@
 ﻿using Restaurant.Domain.BillAggregate.ValueObjects;
+using Restaurant.Domain.Common.Entities;
 using Restaurant.Domain.Common.Models;
 using Restaurant.Domain.Dinner.ValueObjects;
 using Restaurant.Domain.GuestAggregate.ValueObjects;

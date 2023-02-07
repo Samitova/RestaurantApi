@@ -1,6 +1,6 @@
 ﻿using Restaurant.Domain.Common.Models;
 
-namespace Restaurant.Domain.BillAggregate.ValueObjects;
+namespace Restaurant.Domain.Common.Entities;
 public class Price : ValueObject
 {
     public decimal Amount { get; private set; }
