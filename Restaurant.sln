@@ -14,18 +14,16 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant.Domain", "Restaurant.Domain\Restaurant.Domain.csproj", "{AB3BE237-3FCA-4F56-A18C-BE680F348166}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{CF6A2A64-A231-4C15-AA46-8A060BE8033E}"
-	ProjectSection(SolutionItems) = preProject
-		DomainModel.md = DomainModel.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DomainModels", "DomainModels", "{44ED06BF-E126-4D1A-90F1-65A8F0DE71E2}"
 	ProjectSection(SolutionItems) = preProject
 		Aggregates.Bill.md = Aggregates.Bill.md
 		Aggregates.Dinner.md = Aggregates.Dinner.md
-		Aggregates.Host.md = Aggregates.Host.md
 		Aggregates.Guest.md = Aggregates.Guest.md
+		Aggregates.Host.md = Aggregates.Host.md
 		Aggregates.Menu.md = Aggregates.Menu.md
 		Aggregates.MenuReview.md = Aggregates.MenuReview.md
+		Aggregates.User.md = Aggregates.User.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{17E200DD-3F51-4DD1-B4BB-4800D4E8427E}"
