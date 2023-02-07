@@ -12,7 +12,7 @@ class MenuReview
 ```json
 {
     "id": { "value": "00000000-0000-0000-0000-000000000000" },
-    "rating": 4,
+    "ratingValue": 4,
     "comment": "A menu with yummy food",
     "hostId": { "value": "00000000-0000-0000-0000-000000000000" },
     "menuId": { "value": "00000000-0000-0000-0000-000000000000" },
