@@ -19,7 +19,7 @@ class Dinner
     "endDateTime": "2020-01-01T00:00:00.0000000Z",
     "startedDateTime": null,
     "endedDateTime": null,
-    "status": "Upcoming", // Upcoming, InProgress, Ended, Cancelled
+    "dinnerStatus": "Upcoming", // Upcoming, InProgress, Ended, Cancelled
     "isPublic": true,
     "maxGuests": 10,
     "price": {
