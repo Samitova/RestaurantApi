@@ -15,6 +15,11 @@ public sealed class BillId : ValueObject
         return new(Guid.NewGuid());
     }
 
+    public static BillId Create(Guid value)
+    {
+        return new BillId(value);
+    }
+
     public override IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;

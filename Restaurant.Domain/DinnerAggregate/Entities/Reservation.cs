@@ -8,11 +8,11 @@ public sealed class Reservation : Entity<ReservationId>
 {
     public int GuestCount { get; set; }
     public ReservationStatus ReservationStatus { get; set; }
-    public HostId HostId { get; }
-    public BillId BillId { get; }
-    public DateTime ArrivalDateTime { get; }
-    public DateTime CreatedDateTime { get; }
-    public DateTime UpdatedDateTime { get; }
+    public HostId HostId { get; private set; }
+    public BillId BillId { get; private set; }
+    public DateTime ArrivalDateTime { get; private set; }
+    public DateTime CreatedDateTime { get; private set; }
+    public DateTime UpdatedDateTime { get; private set; }
 
     private Reservation(
         ReservationId reservationId,

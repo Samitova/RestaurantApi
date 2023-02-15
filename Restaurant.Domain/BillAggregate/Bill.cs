@@ -9,12 +9,12 @@ namespace Restaurant.Domain.BillAggregate;
 
 public sealed class Bill : AggregateRoot<BillId>
 {
-    public HostId HostId { get; }
-    public GuestId GuestId { get; }
-    public DinnerId DinnerId { get; }
+    public HostId HostId { get; private set; }
+    public GuestId GuestId { get; private set; }
+    public DinnerId DinnerId { get; private set; }
     public Price Price { get; set; }
-    public DateTime CreatedDateTime { get; }
-    public DateTime UpdatedDateTime { get; }
+    public DateTime CreatedDateTime { get; private set; }
+    public DateTime UpdatedDateTime { get; private set; }
 
     private Bill(
         BillId billId,       

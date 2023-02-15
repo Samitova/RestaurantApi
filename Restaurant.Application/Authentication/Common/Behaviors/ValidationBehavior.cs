@@ -2,7 +2,6 @@
 using FluentValidation;
 using FluentValidation.Results;
 using MediatR;
-using Restaurant.Application.Authentication.Commands.Register;
 using System.Reflection;
 
 namespace Restaurant.Application.Authentication.Common.Behaviors;

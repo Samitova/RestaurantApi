@@ -7,11 +7,11 @@ using Restaurant.Domain.Host.ValueObjects;
 namespace Restaurant.Domain.GuestAggregate.Entities;
 public sealed class Rating : Entity<RatingId>
 {
-    public HostId HostId { get; }   
-    public DinnerId DinnerId { get; }
+    public HostId HostId { get; private set; }   
+    public DinnerId DinnerId { get; private set; }
     public int RatingValue { get; set; }
-    public DateTime CreatedDateTime { get; }
-    public DateTime UpdatedDateTime { get; }
+    public DateTime CreatedDateTime { get; private set; }
+    public DateTime UpdatedDateTime { get; private set; }
 
     private Rating(   
         RatingId ratingId,

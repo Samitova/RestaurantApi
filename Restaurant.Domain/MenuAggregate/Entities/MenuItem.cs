@@ -5,8 +5,8 @@ namespace Restaurant.Domain.Menu.Entities;
 
 public sealed class MenuItem : Entity<MenuItemId>
 {
-    public string Title { get; }
-    public string Description { get; }
+    public string Title { get; private set; }
+    public string Description { get; private set; }
 
     private MenuItem(MenuItemId menuItemId, string title, string description): base(menuItemId)
     {
@@ -16,7 +16,7 @@ public sealed class MenuItem : Entity<MenuItemId>
 
     public static MenuItem Create(string title, string description)
     {
-        return new(MenuItemId.CreateUnique(), title, description);
+        return new(MenuItemId.CreateUnique(), title, description);        
     }
 
 }

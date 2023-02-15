@@ -9,22 +9,22 @@ namespace Restaurant.Domain.DinnerAggregate;
 public sealed class Dinner : AggregateRoot<DinnerId>
 {
     private readonly List<Reservation> _reservations = new();
-    public string Title { get; }
-    public string Description { get; }
-    public DateTime StartDateTime { get; }
-    public DateTime EndDateTime { get; }
-    public DateTime? StartedDateTime { get; } = null;
-    public DateTime? EndedDateTime { get; } = null;
+    public string Title { get; private set; }
+    public string Description { get; private set; }
+    public DateTime StartDateTime { get; private set; }
+    public DateTime EndDateTime { get; private set; }
+    public DateTime? StartedDateTime { get; private set; } = null;
+    public DateTime? EndedDateTime { get; private set; } = null;
     public DinnerStatus DinnerStatus { get; set; }
-    bool IsPublic { get; }
+    public bool IsPublic { get; private set; }
     public int MaxGuests { get; set; }    
-    public Price Price { get; }
-    public HostId HostId { get; }
-    public MenuId MenuId { get; }
+    public Price Price { get; private set; }
+    public HostId HostId { get; private set; }
+    public MenuId MenuId { get; private set; }
     public string ImageUrl { get; set; }
     public Location Location { get; set; }   
-    public DateTime CreatedDateTime { get; }
-    public DateTime UpdatedDateTime { get; }
+    public DateTime CreatedDateTime { get; private set; }
+    public DateTime UpdatedDateTime { get; private set; }
     public IReadOnlyList<Reservation> Reservations => _reservations.AsReadOnly();
 
     private Dinner(

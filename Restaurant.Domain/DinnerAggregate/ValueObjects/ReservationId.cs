@@ -13,6 +13,10 @@ public sealed class ReservationId : ValueObject
     {
         return new(Guid.NewGuid());
     }
+    public static ReservationId Create(Guid value)
+    {
+        return new ReservationId(value);
+    }
 
     public override IEnumerable<object> GetEqualityComponents()
     {

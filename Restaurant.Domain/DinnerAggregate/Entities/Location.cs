@@ -6,8 +6,8 @@ public sealed class Location : Entity<LocationId>
 {
     public string Name { get; set; }
     public string Address { get; set; }
-    public decimal Latitude { get; }
-    public decimal Longitude { get; }    
+    public decimal Latitude { get; private set; }
+    public decimal Longitude { get; private set; }    
 
     private Location(
         LocationId locationId,

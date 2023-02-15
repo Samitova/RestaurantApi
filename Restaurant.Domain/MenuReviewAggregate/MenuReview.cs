@@ -8,14 +8,14 @@ using Restaurant.Domain.MenuReview.ValueObjects;
 namespace Restaurant.Domain.MenuReviewAggregate;
 public sealed class MenuReview : AggregateRoot<MenuReviewId>
 {
-    public int RatingValue { get; }
+    public int RatingValue { get; private set; }
     public string Comment { get; set; }
-    public HostId HostId { get; }
-    public GuestId GuestId { get; }    
-    public DinnerId DinnerId { get; }
-    public MenuId MenuId { get; }   
-    public DateTime CreatedDateTime { get; }
-    public DateTime UpdatedDateTime { get; }
+    public HostId HostId { get; private set; }
+    public GuestId GuestId { get; private set; }    
+    public DinnerId DinnerId { get; private set; }
+    public MenuId MenuId { get; private set; }   
+    public DateTime CreatedDateTime { get; private set; }
+    public DateTime UpdatedDateTime { get; private set; }
 
     private MenuReview(
         MenuReviewId menuReviewId,

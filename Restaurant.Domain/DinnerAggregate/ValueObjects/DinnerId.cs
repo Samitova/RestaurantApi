@@ -1,4 +1,5 @@
 ﻿using Restaurant.Domain.Common.Models;
+using Restaurant.Domain.GuestAggregate.ValueObjects;
 
 namespace Restaurant.Domain.Dinner.ValueObjects;
 public sealed class DinnerId : ValueObject
@@ -12,6 +13,11 @@ public sealed class DinnerId : ValueObject
     public static DinnerId CreateUnique()
     {
         return new(Guid.NewGuid());
+    }
+
+    public static DinnerId Create(Guid value)
+    {
+        return new DinnerId(value);
     }
 
     public override IEnumerable<object> GetEqualityComponents()

@@ -1,4 +1,5 @@
 ﻿using Restaurant.Domain.Common.Models;
+using Restaurant.Domain.Host.ValueObjects;
 
 namespace Restaurant.Domain.GuestAggregate.ValueObjects;
 
@@ -13,6 +14,11 @@ public sealed class RatingId : ValueObject
     public static RatingId CreateUnique()
     {
         return new(Guid.NewGuid());
+    }
+
+    public static RatingId Create(Guid value)
+    {
+        return new RatingId(value);
     }
 
     public override IEnumerable<object> GetEqualityComponents()

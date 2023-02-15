@@ -1,4 +1,5 @@
 ﻿using Restaurant.Domain.Common.Models;
+using Restaurant.Domain.Dinner.ValueObjects;
 
 namespace Restaurant.Domain.DinnerAggregate.ValueObjects;
 public sealed class LocationId : ValueObject
@@ -12,6 +13,11 @@ public sealed class LocationId : ValueObject
     public static LocationId CreateUnique()
     {
         return new(Guid.NewGuid());
+    }
+
+    public static LocationId Create(Guid value)
+    {
+        return new LocationId(value);
     }
 
     public override IEnumerable<object> GetEqualityComponents()
