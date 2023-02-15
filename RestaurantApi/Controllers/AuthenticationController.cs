@@ -39,13 +39,6 @@ public class AuthenticationController : ApiController
     {
         var query = _mapper.Map<LoginQuery>(request);
         var authenticationResult = await _mediator.Send(query);
-
-        //if (loginResult.IsError && loginResult.FirstError == Errors.Authentication.)
-        //{
-        //    return Problem(
-        //        statusCode: StatusCodes.Status401Unauthorized, 
-        //        title: loginResult.FirstError.Description);
-        //}
         
         return authenticationResult.Match(
            authenticationResult => Ok(_mapper.Map<AuthenticationResponse>(authenticationResult)),

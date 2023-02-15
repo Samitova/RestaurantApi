@@ -29,6 +29,19 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{17E200DD-3F51-4DD1-B4BB-4800D4E8427E}"
 	ProjectSection(SolutionItems) = preProject
 		Api.md = Api.md
+		Menu.md = Menu.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requests", "Requests", "{3B57F9B9-BB1D-4F7E-ABE7-BBE8C86EDF42}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Menu", "Menu", "{F5758320-BEF0-4C90-8762-641A91261B7A}"
+	ProjectSection(SolutionItems) = preProject
+		CreateMenu.http = CreateMenu.http
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentication", "{9ADC8C5A-F3CC-4A8A-A739-A4E588698E4E}"
+	ProjectSection(SolutionItems) = preProject
+		Register.http = Register.http
 	EndProjectSection
 EndProject
 Global
@@ -64,6 +77,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{44ED06BF-E126-4D1A-90F1-65A8F0DE71E2} = {CF6A2A64-A231-4C15-AA46-8A060BE8033E}
 		{17E200DD-3F51-4DD1-B4BB-4800D4E8427E} = {CF6A2A64-A231-4C15-AA46-8A060BE8033E}
+		{F5758320-BEF0-4C90-8762-641A91261B7A} = {3B57F9B9-BB1D-4F7E-ABE7-BBE8C86EDF42}
+		{9ADC8C5A-F3CC-4A8A-A739-A4E588698E4E} = {3B57F9B9-BB1D-4F7E-ABE7-BBE8C86EDF42}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AED9E679-1C22-4A06-85CA-6A13EDFBB727}

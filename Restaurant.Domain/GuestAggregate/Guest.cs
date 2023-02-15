@@ -28,6 +28,8 @@ public sealed class Guest : AggregateRoot<GuestId>
     public DateTime CreatedDateTime { get; private set; }
     public DateTime UpdatedDateTime { get; private set; }
 
+    private Guest()
+    { }
     private Guest(
         GuestId guestId,
         string firstName,

@@ -51,4 +51,6 @@ public sealed class Bill : AggregateRoot<BillId>
             DateTime.UtcNow);
     }
 
+    protected Bill()
+    { }
 }

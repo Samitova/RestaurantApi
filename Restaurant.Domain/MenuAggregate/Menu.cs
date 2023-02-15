@@ -25,6 +25,9 @@ public sealed class Menu:AggregateRoot<MenuId>
     public DateTime CreatedDateTime { get; private set; }
     public DateTime UpdatedDateTime { get; private set; }
 
+    private Menu()
+    { }
+
     private Menu(
         MenuId menuId, 
         string title, 

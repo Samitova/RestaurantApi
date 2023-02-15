@@ -13,6 +13,9 @@ public sealed class Rating : Entity<RatingId>
     public DateTime CreatedDateTime { get; private set; }
     public DateTime UpdatedDateTime { get; private set; }
 
+    private Rating()
+    { }
+
     private Rating(   
         RatingId ratingId,
         HostId hostId,       

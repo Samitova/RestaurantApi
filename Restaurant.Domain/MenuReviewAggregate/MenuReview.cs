@@ -17,6 +17,8 @@ public sealed class MenuReview : AggregateRoot<MenuReviewId>
     public DateTime CreatedDateTime { get; private set; }
     public DateTime UpdatedDateTime { get; private set; }
 
+    private MenuReview()
+    { }
     private MenuReview(
         MenuReviewId menuReviewId,
         int ratingValue,

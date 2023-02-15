@@ -3,15 +3,12 @@
 Table of Contents
 - [Restaurant Api](#restaurant-api)
     - [Authentification](#authentification)
-        - [Register](#create-breakfast-request)
-            - [Register Request](#create-breakfast-response)
-            - [Register Response](#create-breakfast-response)
-        - [Login](#get-breakfast)
-            - [Login Request](#get-breakfast-request)
-            - [Login Response](#get-breakfast-response)
-   
-
-
+        - [Register](#register)
+            - [Register Request](#register-request)
+            - [Register Response](#register-response)
+        - [Login](#login)
+            - [Login Request](#login-request)
+            - [Login Response](#login-response) 
 
 ## Authentification
 

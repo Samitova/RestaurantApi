@@ -10,7 +10,11 @@ public class Entity<TId>:IEquatable<Entity<TId>>
 		Id = id;
 	}
 
-	public override bool Equals(object? obj)
+    protected Entity()
+    {
+    }
+
+    public override bool Equals(object? obj)
 	{
 		return obj is Entity<TId> entity && Id.Equals(entity.Id);
 	}

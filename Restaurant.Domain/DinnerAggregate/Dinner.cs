@@ -27,6 +27,8 @@ public sealed class Dinner : AggregateRoot<DinnerId>
     public DateTime UpdatedDateTime { get; private set; }
     public IReadOnlyList<Reservation> Reservations => _reservations.AsReadOnly();
 
+    private Dinner()
+    { }
     private Dinner(
         DinnerId dinnerId,
         string title,

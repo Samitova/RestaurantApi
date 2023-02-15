@@ -20,6 +20,8 @@ public sealed class Host : AggregateRoot<HostId>
     public DateTime CreatedDateTime { get; private set; }
     public DateTime UpdatedDateTime { get; private set; }
 
+    private Host()
+    { }
     private Host(
         HostId hostId,
         string firstName,

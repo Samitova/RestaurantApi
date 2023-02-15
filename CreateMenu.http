@@ -1,0 +1,25 @@
+@host = https://localhost:7164
+@token = 
+
+Post {{host}}/api/hosts/{{hostId}}/menus
+Content-Type: application/json
+Authorization: Baerer {{token}}
+
+{
+   "title": "title",
+	"description": "description",	
+	"sections":[
+		{			
+			"title": "title",
+			"description": "description",
+			"items":[
+				{					
+					"title": "title",
+					"description": "description"					
+				}
+			]
+		}		
+	]  
+}
+
+

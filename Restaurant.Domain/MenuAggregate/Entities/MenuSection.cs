@@ -11,6 +11,9 @@ public sealed class MenuSection: Entity<MenuSectionId>
 
     public IReadOnlyList<MenuItem> Items => _items.AsReadOnly();
 
+    private MenuSection()
+    { }
+
     private MenuSection(MenuSectionId menuSectionId, string title, string description, List<MenuItem> items) : base(menuSectionId)
     {
         Title = title;

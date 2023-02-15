@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="HostAggregate\ValueObjects\HostId.cs~RF11b2cc37.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ErrorOr" Version="1.2.1" />
   </ItemGroup>
 

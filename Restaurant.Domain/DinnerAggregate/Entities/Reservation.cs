@@ -14,6 +14,8 @@ public sealed class Reservation : Entity<ReservationId>
     public DateTime CreatedDateTime { get; private set; }
     public DateTime UpdatedDateTime { get; private set; }
 
+    private Reservation()
+    { }
     private Reservation(
         ReservationId reservationId,
         int guestCount,

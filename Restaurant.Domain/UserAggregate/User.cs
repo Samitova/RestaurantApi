@@ -12,6 +12,9 @@ public sealed class User : AggregateRoot<UserId>
     public DateTime CreatedDateTime { get; private set; }
     public DateTime UpdatedDateTime { get; private set; }
 
+    private User()
+    { }
+
     private User(
         UserId userId,
         string firstName,

@@ -8,6 +8,8 @@ public sealed class MenuItem : Entity<MenuItemId>
     public string Title { get; private set; }
     public string Description { get; private set; }
 
+    private MenuItem()
+    { }
     private MenuItem(MenuItemId menuItemId, string title, string description): base(menuItemId)
     {
         Title = title;
