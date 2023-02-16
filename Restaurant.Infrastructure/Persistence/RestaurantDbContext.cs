@@ -9,4 +9,10 @@ public class RestaurantDbContext: DbContext
 	{
 	}
 	public DbSet<Menu> Menus { get; set; } = null!;
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(RestaurantDbContext).Assembly);
+        base.OnModelCreating(modelBuilder);
+    }
 }

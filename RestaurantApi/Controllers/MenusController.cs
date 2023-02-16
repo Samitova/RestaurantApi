@@ -20,9 +20,9 @@ namespace Restaurant.Api.Controllers
         [HttpPost()]
         public async Task<IActionResult> CreateMenu(CreateMenuRequest request, string hostId)
         {
-            var commant = _mapper.Map<CreateMenuCommand>((request, hostId));
-            var createMenuResult  = await _sender.Send(commant);
-           
+            var command = _mapper.Map<CreateMenuCommand>((request, hostId));
+            var createMenuResult  = await _sender.Send(command);
+
             return createMenuResult.Match(
                 createResult => Ok(_mapper.Map<MenuResponse>(createResult)),
                 errors => Problem(errors));

@@ -11,6 +11,7 @@ using Restaurant.Infrastructure.Authentication;
 using Restaurant.Infrastructure.Persistence;
 using Restaurant.Infrastructure.Persistence.Repositories;
 using Restaurant.Infrastructure.Services;
+using System;
 using System.Text;
 
 namespace Restaurant.Infrastructure;
@@ -26,14 +27,13 @@ public static class DependencyInjection
     }
 
     private static IServiceCollection AddPersistant(this IServiceCollection services)
-    {
+    {       
         services.AddDbContext<RestaurantDbContext>(options =>
-        options.UseSqlServer());
+        options.UseSqlServer("Server=localhost;Database=Restaurant;User Id=sa;Password=123qwE45!;Encrypt=false;"));
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IMenuRepository, MenuRepository>();
         return services;
     }
-
     private static IServiceCollection AddAuthentication(
         this IServiceCollection services, 
         ConfigurationManager configuration)

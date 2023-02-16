@@ -4,7 +4,7 @@ public record MenuResponse(
     string Id,
     String Title,
     String Description, 
-    float? averageRating,
+    float AverageRating,
     List<MenuSectionResponse> Sections, 
     string HostId,
     List<string> DinnerIds,

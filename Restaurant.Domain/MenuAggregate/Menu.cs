@@ -3,7 +3,7 @@ using Restaurant.Domain.Dinner.ValueObjects;
 using Restaurant.Domain.Host.ValueObjects;
 using Restaurant.Domain.Menu.Entities;
 using Restaurant.Domain.Menu.ValueObjects;
-using Restaurant.Domain.MenuAggregate.ValueObjects;
+using Restaurant.Domain.MenuAggregate.Entities;
 using Restaurant.Domain.MenuReview.ValueObjects;
 
 namespace Restaurant.Domain.Menu;
@@ -58,7 +58,7 @@ public sealed class Menu:AggregateRoot<MenuId>
             MenuId.CreateUnique(),
             title,
             description,
-            new AverageRating(0, 0),
+            AverageRating.Create(0, 0),
             sections,
             hostId, 
             DateTime.UtcNow,
