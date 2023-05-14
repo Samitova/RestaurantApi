@@ -2,13 +2,11 @@
 using Restaurant.Domain.Common.Models;
 using Restaurant.Domain.Dinner.ValueObjects;
 using Restaurant.Domain.GuestAggregate.ValueObjects;
-using Restaurant.Domain.Host.ValueObjects;
-using Restaurant.Domain.Menu.ValueObjects;
 using Restaurant.Domain.MenuReview.ValueObjects;
 using Restaurant.Domain.UserAggregate.ValueObjects;
 
 namespace Restaurant.Domain.GuestAggregate;
-public sealed class Guest : AggregateRoot<GuestId>
+public sealed class Guest : AggregateRoot<GuestId, Guid>
 {
     private readonly List<DinnerId> _upcomingDinnerIds = new();
     private readonly List<DinnerId> _pastDinnerIds = new();

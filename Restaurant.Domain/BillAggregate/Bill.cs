@@ -7,7 +7,7 @@ using Restaurant.Domain.Host.ValueObjects;
 
 namespace Restaurant.Domain.BillAggregate;
 
-public sealed class Bill : AggregateRoot<BillId>
+public sealed class Bill : AggregateRoot<BillId, Guid>
 {
     public HostId HostId { get; private set; }
     public GuestId GuestId { get; private set; }

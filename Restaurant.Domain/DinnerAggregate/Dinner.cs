@@ -3,7 +3,7 @@ using Restaurant.Domain.Common.Models;
 using Restaurant.Domain.Dinner.ValueObjects;
 using Restaurant.Domain.DinnerAggregate.Entities;
 using Restaurant.Domain.Host.ValueObjects;
-using Restaurant.Domain.Menu.ValueObjects;
+using Restaurant.Domain.MenuAggregate.ValueObjects;
 
 namespace Restaurant.Domain.DinnerAggregate;
 public sealed class Dinner : AggregateRoot<DinnerId, Guid>

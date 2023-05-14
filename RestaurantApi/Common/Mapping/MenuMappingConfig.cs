@@ -1,9 +1,9 @@
 ﻿using Mapster;
 using Restaurant.Application.Menus.Commands.CreateMenu;
 using Restaurant.Contracts.Menus;
-using Restaurant.Domain.Menu;
-using MenuSection = Restaurant.Domain.Menu.Entities.MenuSection;
-using MenuItem = Restaurant.Domain.Menu.Entities.MenuItem;
+using Restaurant.Domain.MenuAggregate;
+using MenuSection = Restaurant.Domain.MenuAggregate.Entities.MenuSection;
+using MenuItem = Restaurant.Domain.MenuAggregate.Entities.MenuItem;
 
 namespace Restaurant.Api.Common.Mapping;
 public class MenuMappingConfig : IRegister

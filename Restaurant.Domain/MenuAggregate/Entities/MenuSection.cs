@@ -1,7 +1,7 @@
 ﻿using Restaurant.Domain.Common.Models;
-using Restaurant.Domain.Menu.ValueObjects;
+using Restaurant.Domain.MenuAggregate.ValueObjects;
 
-namespace Restaurant.Domain.Menu.Entities;
+namespace Restaurant.Domain.MenuAggregate.Entities;
 
 public sealed class MenuSection: Entity<MenuSectionId>
 {

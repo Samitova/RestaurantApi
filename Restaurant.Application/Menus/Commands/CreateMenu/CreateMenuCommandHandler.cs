@@ -2,8 +2,8 @@
 using MediatR;
 using Restaurant.Application.Common.Interfaces.Persistence;
 using Restaurant.Domain.Host.ValueObjects;
-using Restaurant.Domain.Menu;
-using Restaurant.Domain.Menu.Entities;
+using Restaurant.Domain.MenuAggregate;
+using Restaurant.Domain.MenuAggregate.Entities;
 
 namespace Restaurant.Application.Menus.Commands.CreateMenu;
 

@@ -1,6 +1,4 @@
-﻿using Restaurant.Domain.Menu.ValueObjects;
-
-namespace Restaurant.Domain.MenuAggregate.Entities;
+﻿namespace Restaurant.Domain.MenuAggregate.Entities;
 
 public class AverageRating
 {

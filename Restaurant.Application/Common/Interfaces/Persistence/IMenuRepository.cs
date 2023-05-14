@@ -1,4 +1,4 @@
-﻿using Restaurant.Domain.Menu;
+﻿using Restaurant.Domain.MenuAggregate;
 
 namespace Restaurant.Application.Common.Interfaces.Persistence;
 public interface IMenuRepository

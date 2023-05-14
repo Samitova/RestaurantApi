@@ -9,6 +9,7 @@ using Restaurant.Application.Common.Interfaces.Persistence;
 using Restaurant.Application.Common.Interfaces.Services;
 using Restaurant.Infrastructure.Authentication;
 using Restaurant.Infrastructure.Persistence;
+using Restaurant.Infrastructure.Persistence.Interceptors;
 using Restaurant.Infrastructure.Persistence.Repositories;
 using Restaurant.Infrastructure.Services;
 using System;
@@ -30,6 +31,7 @@ public static class DependencyInjection
     {       
         services.AddDbContext<RestaurantDbContext>(options =>
         options.UseSqlServer("Server=localhost;Database=Restaurant;User Id=sa;Password=123qwE45!;Encrypt=false;"));
+        services.AddScoped<PublishDomainEventsInterseptor>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IMenuRepository, MenuRepository>();
         return services;

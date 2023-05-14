@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Restaurant.Domain.Host.ValueObjects;
-using Restaurant.Domain.Menu;
-using Restaurant.Domain.Menu.Entities;
-using Restaurant.Domain.Menu.ValueObjects;
+using Restaurant.Domain.MenuAggregate;
+using Restaurant.Domain.MenuAggregate.Entities;
+using Restaurant.Domain.MenuAggregate.ValueObjects;
 
 namespace Restaurant.Infrastructure.Persistence.Configurations;
 public class MenuConfigurations : IEntityTypeConfiguration<Menu>

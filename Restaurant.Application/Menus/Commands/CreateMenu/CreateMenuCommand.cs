@@ -1,6 +1,6 @@
 ﻿using ErrorOr;
 using MediatR;
-using Restaurant.Domain.Menu;
+using Restaurant.Domain.MenuAggregate;
 
 namespace Restaurant.Application.Menus.Commands.CreateMenu;
 

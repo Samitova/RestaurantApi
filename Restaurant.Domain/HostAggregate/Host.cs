@@ -1,12 +1,12 @@
 ﻿using Restaurant.Domain.Common.Models;
 using Restaurant.Domain.Dinner.ValueObjects;
 using Restaurant.Domain.Host.ValueObjects;
-using Restaurant.Domain.Menu.ValueObjects;
+using Restaurant.Domain.MenuAggregate.ValueObjects;
 using Restaurant.Domain.UserAggregate.ValueObjects;
 
 namespace Restaurant.Domain.HostAggregate;
 
-public sealed class Host : AggregateRoot<HostId>
+public sealed class Host : AggregateRoot<HostId, Guid>
 {
     private readonly List<DinnerId> _dinnerIds = new();
     private readonly List<MenuId> _menuIds = new();

@@ -1,6 +1,6 @@
 ﻿using Restaurant.Domain.Common.Models;
 
-namespace Restaurant.Domain.Menu.ValueObjects;
+namespace Restaurant.Domain.MenuAggregate.ValueObjects;
 
 public sealed class MenuId : AggregateRootId<Guid>
 {

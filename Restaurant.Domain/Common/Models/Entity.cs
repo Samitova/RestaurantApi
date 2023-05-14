@@ -1,16 +1,19 @@
 ﻿
 namespace Restaurant.Domain.Common.Models;
-public class Entity<TId>:IEquatable<Entity<TId>>
+public class Entity<TId>:IEquatable<Entity<TId>>, IHasDomainEvents
     where TId : notnull
 {
-    public TId Id { get; protected set; }
+    private readonly List<IDomainEvent> _domainEvents = new ();
+    public IReadOnlyList<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
 
-	public Entity(TId id)
+    public TId Id { get; protected set; }    
+
+    public Entity(TId id)
 	{
 		Id = id;
 	}
 
-    protected Entity()
+    public Entity()
     {
     }
 
@@ -35,5 +38,15 @@ public class Entity<TId>:IEquatable<Entity<TId>>
     public override int GetHashCode()
     {
         return Id.GetHashCode();
+    }
+
+    public void AddDomainEvent(IDomainEvent domainEvent)
+    { 
+        _domainEvents.Add(domainEvent);
+    }
+
+    public void ClearDomainEvents()
+    {
+        _domainEvents.Clear();
     }
 }

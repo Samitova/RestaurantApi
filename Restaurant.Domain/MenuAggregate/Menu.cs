@@ -1,13 +1,12 @@
 ﻿using Restaurant.Domain.Common.Models;
 using Restaurant.Domain.Dinner.ValueObjects;
 using Restaurant.Domain.Host.ValueObjects;
-using Restaurant.Domain.Menu.Entities;
-using Restaurant.Domain.Menu.ValueObjects;
 using Restaurant.Domain.MenuAggregate.Entities;
+using Restaurant.Domain.MenuAggregate.Events;
+using Restaurant.Domain.MenuAggregate.ValueObjects;
 using Restaurant.Domain.MenuReview.ValueObjects;
 
-namespace Restaurant.Domain.Menu;
-
+namespace Restaurant.Domain.MenuAggregate;
 public sealed class Menu:AggregateRoot<MenuId, Guid>
 {    
     private readonly List<MenuSection> _sections = new();
@@ -54,14 +53,18 @@ public sealed class Menu:AggregateRoot<MenuId, Guid>
         List<MenuSection> sections,
         HostId hostId)
     {
-        return new(
+        var menu = new Menu(
             MenuId.CreateUnique(),
             title,
             description,
             AverageRating.Create(0, 0),
-            sections,
+            sections ?? new(),
             hostId, 
             DateTime.UtcNow,
             DateTime.UtcNow);
+
+        menu.AddDomainEvent(new MenuCreated(menu));
+
+        return menu;
     }
 }

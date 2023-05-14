@@ -2,11 +2,11 @@
 using Restaurant.Domain.Dinner.ValueObjects;
 using Restaurant.Domain.GuestAggregate.ValueObjects;
 using Restaurant.Domain.Host.ValueObjects;
-using Restaurant.Domain.Menu.ValueObjects;
+using Restaurant.Domain.MenuAggregate.ValueObjects;
 using Restaurant.Domain.MenuReview.ValueObjects;
 
 namespace Restaurant.Domain.MenuReviewAggregate;
-public sealed class MenuReview : AggregateRoot<MenuReviewId>
+public sealed class MenuReview : AggregateRoot<MenuReviewId, Guid>
 {
     public int RatingValue { get; private set; }
     public string Comment { get; set; }
