@@ -8,7 +8,7 @@ using Restaurant.Domain.MenuReview.ValueObjects;
 
 namespace Restaurant.Domain.Menu;
 
-public sealed class Menu:AggregateRoot<MenuId>
+public sealed class Menu:AggregateRoot<MenuId, Guid>
 {    
     private readonly List<MenuSection> _sections = new();
 

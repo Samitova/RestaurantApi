@@ -15,9 +15,10 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
     {
         _validator = validator;
     }
+
     public async Task<TResponse> Handle(
-        TRequest request, 
-        RequestHandlerDelegate<TResponse> next, 
+        TRequest request,
+        RequestHandlerDelegate<TResponse> next,
         CancellationToken cancellationToken)
     {
         if (_validator is null)
@@ -25,7 +26,7 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
             return await next();
         }
         var validationResult = await _validator.ValidateAsync(request, cancellationToken);
-        
+
         if (validationResult.IsValid)
         {
             return await next();
@@ -33,7 +34,7 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
 
         return TryCreateResponseFromErrors(validationResult.Errors, out var response)
            ? response
-           : throw new ValidationException(validationResult.Errors);        
+           : throw new ValidationException(validationResult.Errors);
     }
 
     private static bool TryCreateResponseFromErrors(List<ValidationFailure> validationFailures, out TResponse response)
@@ -52,4 +53,5 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
         return response is not null;
     }
 
+  
 }

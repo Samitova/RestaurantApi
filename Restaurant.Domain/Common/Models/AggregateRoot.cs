@@ -1,8 +1,9 @@
 ﻿namespace Restaurant.Domain.Common.Models;
-public class AggregateRoot<TId>: Entity<TId>
+public class AggregateRoot<TId, TIdType>: Entity<TId>
     where TId : notnull
 {
-	protected AggregateRoot(TId id): base(id)
+    public new AggregateRootId<TIdType> Id { get; protected set; }
+    protected AggregateRoot(TId id): base(id)
 	{
 	}
 

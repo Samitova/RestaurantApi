@@ -1,10 +1,9 @@
 ﻿using Restaurant.Domain.Common.Models;
-using Restaurant.Domain.GuestAggregate.ValueObjects;
 
 namespace Restaurant.Domain.Dinner.ValueObjects;
-public sealed class DinnerId : ValueObject
-{
-    public Guid Value { get; }
+public sealed class DinnerId : AggregateRootId<Guid>
+{ 
+    public override Guid Value { get; protected set; }    
     private DinnerId(Guid value)
     {
         Value = value;

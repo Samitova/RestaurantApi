@@ -22,6 +22,7 @@ namespace Restaurant.Api.Controllers
         {
             var command = _mapper.Map<CreateMenuCommand>((request, hostId));
             var createMenuResult  = await _sender.Send(command);
+           
 
             return createMenuResult.Match(
                 createResult => Ok(_mapper.Map<MenuResponse>(createResult)),

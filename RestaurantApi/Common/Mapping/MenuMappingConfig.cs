@@ -4,10 +4,6 @@ using Restaurant.Contracts.Menus;
 using Restaurant.Domain.Menu;
 using MenuSection = Restaurant.Domain.Menu.Entities.MenuSection;
 using MenuItem = Restaurant.Domain.Menu.Entities.MenuItem;
-using Restaurant.Domain.Dinner.ValueObjects;
-using Restaurant.Domain.Host.ValueObjects;
-using Restaurant.Domain.MenuAggregate.Entities;
-using Restaurant.Domain.MenuReview.ValueObjects;
 
 namespace Restaurant.Api.Common.Mapping;
 public class MenuMappingConfig : IRegister

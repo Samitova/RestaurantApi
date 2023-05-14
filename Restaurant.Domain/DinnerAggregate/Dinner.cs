@@ -6,7 +6,7 @@ using Restaurant.Domain.Host.ValueObjects;
 using Restaurant.Domain.Menu.ValueObjects;
 
 namespace Restaurant.Domain.DinnerAggregate;
-public sealed class Dinner : AggregateRoot<DinnerId>
+public sealed class Dinner : AggregateRoot<DinnerId, Guid>
 {
     private readonly List<Reservation> _reservations = new();
     public string Title { get; private set; }
